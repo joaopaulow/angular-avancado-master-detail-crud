@@ -1,0 +1,28 @@
+import { Component, OnInit, Input } from '@angular/core';
+
+interface BreadCrumbItem {
+  text: string;
+  link?: string;
+}
+
+@Component({
+  selector: 'app-bread-crumb',
+  templateUrl: './bread-crumb.component.html',
+  styleUrls: ['./bread-crumb.component.scss']
+})
+export class BreadCrumbComponent implements OnInit {
+
+  @Input() items: Array<BreadCrumbItem> = [];
+
+  ngOnInit() {
+
+  }
+
+  isTheLastItem(item: BreadCrumbItem): boolean {
+    const index = this.items.indexOf(item);
+
+    console.log('Itens: ' + this.items);
+    return index + 1 == this.items.length;
+  }
+
+}
